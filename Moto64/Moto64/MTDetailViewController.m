@@ -9,7 +9,10 @@
 #import "MTDetailViewController.h"
 
 @interface MTDetailViewController ()
+
+@property (strong, nonatomic) IBOutlet UIWebView *webView;
 - (void)configureView;
+
 @end
 
 @implementation MTDetailViewController
@@ -31,7 +34,12 @@
     // Update the user interface for the detail item.
 
     if (self.detailItem) {
-        self.detailDescriptionLabel.text = [[self.detailItem valueForKey:@"timeStamp"] description];
+        self.navigationItem.title = [[self.detailItem valueForKey:@"title"] description];
+        NSURL *url = [NSURL URLWithString:[[self.detailItem valueForKey:@"url"] description]];
+        NSURLRequest *request = [NSURLRequest requestWithURL:url];
+        [self.webView setScalesPageToFit:YES];
+        [[self.webView scrollView] setScrollEnabled:YES];
+        [self.webView loadRequest:request];
     }
 }
 
