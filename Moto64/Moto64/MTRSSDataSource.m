@@ -45,6 +45,23 @@
     return results;
 }
 
+- (BOOL)isItemExists:(NSDate *)pubDate
+{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    // Edit the entity name as appropriate.
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Event" inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    
+    [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"pubDate == %@", pubDate]];
+    [fetchRequest setFetchLimit:1];
+    
+    NSError *error = nil;
+    
+    int count = [self.managedObjectContext countForFetchRequest:fetchRequest error:&error];
+    
+    return count > 0;
+}
+
 - (void)fetchRssFeedCachedBlock:(MTRSSDataSourceSuccessBlock)cachedBlock successBlock:(MTRSSDataSourceSuccessBlock)successBlock failureBlock:(MTRSSDataSourceFailureBlock)failureBlock
 {
     if (cachedBlock) {
@@ -57,28 +74,28 @@
     [RSSParser parseRSSFeedForRequest:request success:^(NSArray *feedItems) {
         
         for (RSSItem *item in feedItems) {
+            
+            if (![self isItemExists:item.pubDate]) {
 
-//            NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
-//            NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
-            
-            NSManagedObjectContext *context = [self managedObjectContext];
-            NSEntityDescription *entity = [NSEntityDescription entityForName:@"Event" inManagedObjectContext:self.managedObjectContext];
-            
-            NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
-            
-            // If appropriate, configure the new managed object.
-            // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
-            [newManagedObject setValue:item.pubDate forKey:@"pubDate"];
-            [newManagedObject setValue:item.title forKey:@"title"];
-            [newManagedObject setValue:[item.link absoluteString] forKey:@"link"];
-            
-            // Save the context.
-            NSError *error = nil;
-            if (![context save:&error]) {
-                // Replace this implementation with code to handle the error appropriately.
-                // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-                abort();
+                NSManagedObjectContext *context = [self managedObjectContext];
+                NSEntityDescription *entity = [NSEntityDescription entityForName:@"Event" inManagedObjectContext:self.managedObjectContext];
+                
+                NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
+                
+                // If appropriate, configure the new managed object.
+                // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
+                [newManagedObject setValue:item.pubDate forKey:@"pubDate"];
+                [newManagedObject setValue:item.title forKey:@"title"];
+                [newManagedObject setValue:[item.link absoluteString] forKey:@"link"];
+                
+                // Save the context.
+                NSError *error = nil;
+                if (![context save:&error]) {
+                    // Replace this implementation with code to handle the error appropriately.
+                    // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                    NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+                    abort();
+                }
             }
         }
         

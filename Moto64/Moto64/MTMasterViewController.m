@@ -9,6 +9,7 @@
 #import "MTMasterViewController.h"
 #import "MTDetailViewController.h"
 #import "MTRSSDataSource.h"
+#import "SVPullToRefresh.h"
 
 @interface MTMasterViewController ()
 
@@ -32,6 +33,10 @@
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
     
     [self refreshData];
+//    [self.tableView addPullToRefreshWithActionHandler:^{
+//        [self refreshData];
+//    } position:SVPullToRefreshPositionTop];
+//    [self.tableView triggerPullToRefresh];
 
 //    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
 //    self.navigationItem.rightBarButtonItem = addButton;
@@ -40,13 +45,20 @@
 - (void)refreshData
 {
     [[MTRSSDataSource sharedInstance] fetchRssFeedCachedBlock:^(NSArray *result) {
-                [self.tableView reloadData];
+        
+        [self.tableView reloadData];
+        
     } successBlock:^(NSArray *result) {
-                [self.tableView reloadData];
+        
+//        [self.tableView.pullToRefreshView stopAnimating];
+        [self.tableView reloadData];
+        
     } failureBlock:^(NSError *error) {
+        
         NSLog(@"%@", error);
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alertView show];
+        
     }];
 }
 
