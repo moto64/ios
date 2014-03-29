@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>51006F68-9680-4FE1-AB14-37BED7668B25</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Moto64</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>20CC85A6-08C1-4AD0-9276-29A5A1474CD8</key>
+		<string>https://github.com/moto64/ios.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Moto64/Moto64.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>20CC85A6-08C1-4AD0-9276-29A5A1474CD8</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/moto64/ios.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>20CC85A6-08C1-4AD0-9276-29A5A1474CD8</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>20CC85A6-08C1-4AD0-9276-29A5A1474CD8</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ios</string>
+		</dict>
+	</array>
+</dict>
+</plist>

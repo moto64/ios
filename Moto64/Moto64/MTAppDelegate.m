@@ -7,8 +7,9 @@
 //
 
 #import "MTAppDelegate.h"
-
 #import "MTMasterViewController.h"
+#import "AFNetworkActivityIndicatorManager.h"
+#import "MTRSSDataSource.h"
 
 @implementation MTAppDelegate
 
@@ -22,9 +23,14 @@
     UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
     MTMasterViewController *controller = (MTMasterViewController *)navigationController.topViewController;
     controller.managedObjectContext = self.managedObjectContext;
+    
+    [[MTRSSDataSource sharedInstance] setManagedObjectContext:self.managedObjectContext];
+    
+    [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
+    
     return YES;
 }
-							
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

@@ -35,7 +35,7 @@
 
     if (self.detailItem) {
         self.navigationItem.title = [[self.detailItem valueForKey:@"title"] description];
-        NSURL *url = [NSURL URLWithString:[[self.detailItem valueForKey:@"url"] description]];
+        NSURL *url = [NSURL URLWithString:[[self.detailItem valueForKey:@"link"] description]];
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
         [self.webView setScalesPageToFit:YES];
         [[self.webView scrollView] setScrollEnabled:YES];

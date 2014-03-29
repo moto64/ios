@@ -64,6 +64,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Moto64" id="tQt-TN-PWz"/>
+                    <connections>
+                        <outlet property="tableView" destination="mLL-gJ-YKr" id="OQK-f7-Zot"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Cn-md-YlS" sceneMemberID="firstResponder"/>
             </objects>

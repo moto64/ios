@@ -7,11 +7,15 @@
 //
 
 #import "MTMasterViewController.h"
-
 #import "MTDetailViewController.h"
+#import "MTRSSDataSource.h"
 
 @interface MTMasterViewController ()
+
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
+
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
+
 @end
 
 @implementation MTMasterViewController
@@ -26,9 +30,24 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    
+    [self refreshData];
 
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
-    self.navigationItem.rightBarButtonItem = addButton;
+//    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
+//    self.navigationItem.rightBarButtonItem = addButton;
+}
+
+- (void)refreshData
+{
+    [[MTRSSDataSource sharedInstance] fetchRssFeedCachedBlock:^(NSArray *result) {
+                [self.tableView reloadData];
+    } successBlock:^(NSArray *result) {
+                [self.tableView reloadData];
+    } failureBlock:^(NSError *error) {
+        NSLog(@"%@", error);
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alertView show];
+    }];
 }
 
 - (void)didReceiveMemoryWarning
@@ -45,9 +64,9 @@
     
     // If appropriate, configure the new managed object.
     // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
-    [newManagedObject setValue:[NSDate date] forKey:@"timeStamp"];
+    [newManagedObject setValue:[NSDate date] forKey:@"pubDate"];
     [newManagedObject setValue:@"Title" forKey:@"title"];
-    [newManagedObject setValue:@"http://moto64.ru" forKey:@"url"];
+    [newManagedObject setValue:@"http://moto64.ru" forKey:@"link"];
     
     // Save the context.
     NSError *error = nil;
@@ -133,7 +152,7 @@
     [fetchRequest setFetchBatchSize:20];
     
     // Edit the sort key as appropriate.
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"timeStamp" ascending:NO];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"pubDate" ascending:NO];
     NSArray *sortDescriptors = @[sortDescriptor];
     
     [fetchRequest setSortDescriptors:sortDescriptors];
@@ -219,7 +238,7 @@
 {
     NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
     cell.textLabel.text = [[object valueForKey:@"title"] description];
-    cell.detailTextLabel.text = [[object valueForKey:@"timeStamp"] description];
+    cell.detailTextLabel.text = [[object valueForKey:@"pubDate"] description];
 }
 
 @end
