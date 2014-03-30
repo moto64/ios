@@ -28,7 +28,93 @@
     
     [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
     
+    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
+    
+    NSDictionary* userInfo = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+    if (userInfo) {
+        NSLog(@"Received notification: %@", userInfo);
+        [self processRemoteNotification:userInfo];
+    }
+    
     return YES;
+}
+
+- (void) processRemoteNotification:(NSDictionary *)userInfo
+{
+    NSDictionary *apsInfo = [userInfo objectForKey:@"aps"];
+    
+    NSString *alertMsg = @"";
+    NSString *badge = @"";
+    NSString *sound = @"";
+    NSString *custom = @"";
+    
+    if( [apsInfo objectForKey:@"alert"] != NULL)
+    {
+        alertMsg = [apsInfo objectForKey:@"alert"];
+    }
+    
+    
+    if( [apsInfo objectForKey:@"badge"] != NULL)
+    {
+        badge = [apsInfo objectForKey:@"badge"];
+    }
+    
+    
+    if( [apsInfo objectForKey:@"sound"] != NULL)
+    {
+        sound = [apsInfo objectForKey:@"sound"];
+    }
+    
+    if( [userInfo objectForKey:@"Custom"] != NULL)
+    {
+        custom = [userInfo objectForKey:@"Custom"];
+    }
+//    {
+//        "aps":
+//        {
+//            "alert":
+//            {
+//                "action-loc-key": "Open",
+//                "body": "Hello, world!"
+//            },
+//            "badge": 2,
+//            "sound": "default"
+//        }
+//    }
+}
+
+// Delegation methods
+
+- (void)application:(UIApplication *)app didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)devToken
+{
+    
+    const void *devTokenBytes = [devToken bytes];
+    //send device token to the push provider
+    
+    NSLog(@"My token is: %@", devTokenBytes);
+    
+}
+
+- (void) application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+{
+    
+    if ([application applicationState] == UIApplicationStateInactive) {
+        // user tapped the action button
+    } else if ([application applicationState] == UIApplicationStateActive) {
+        // he application was frontmost when it received the notification
+    }
+    
+    [self processRemoteNotification:userInfo];
+    NSLog(@"Received notification: %@", userInfo);
+    
+}
+
+
+- (void)application:(UIApplication *)app didFailToRegisterForRemoteNotificationsWithError:(NSError *)err
+{
+    
+    NSLog(@"Error in registration. Error: %@", err);
+    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

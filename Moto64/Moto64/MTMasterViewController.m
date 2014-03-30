@@ -9,7 +9,6 @@
 #import "MTMasterViewController.h"
 #import "MTDetailViewController.h"
 #import "MTRSSDataSource.h"
-#import "SVPullToRefresh.h"
 
 @interface MTMasterViewController ()
 
@@ -33,10 +32,6 @@
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
     
     [self refreshData];
-//    [self.tableView addPullToRefreshWithActionHandler:^{
-//        [self refreshData];
-//    } position:SVPullToRefreshPositionTop];
-//    [self.tableView triggerPullToRefresh];
 
 //    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
 //    self.navigationItem.rightBarButtonItem = addButton;
@@ -50,7 +45,6 @@
         
     } successBlock:^(NSArray *result) {
         
-//        [self.tableView.pullToRefreshView stopAnimating];
         [self.tableView reloadData];
         
     } failureBlock:^(NSError *error) {

@@ -37,8 +37,6 @@
 		DA68EA1218C4F29700B15FEB /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA68E9ED18C4F29700B15FEB /* CoreData.framework */; };
 		DA68EA1A18C4F29700B15FEB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA68EA1818C4F29700B15FEB /* InfoPlist.strings */; };
 		DA68EA1C18C4F29700B15FEB /* Moto64Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = DA68EA1B18C4F29700B15FEB /* Moto64Tests.m */; };
-		DABF8F8018E7276800827F66 /* UIScrollView+SVInfiniteScrolling.m in Sources */ = {isa = PBXBuildFile; fileRef = DABF8F7D18E7276800827F66 /* UIScrollView+SVInfiniteScrolling.m */; };
-		DABF8F8118E7276800827F66 /* UIScrollView+SVPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = DABF8F7F18E7276800827F66 /* UIScrollView+SVPullToRefresh.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,11 +98,6 @@
 		DA68EA1718C4F29700B15FEB /* Moto64Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Moto64Tests-Info.plist"; sourceTree = "<group>"; };
 		DA68EA1918C4F29700B15FEB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		DA68EA1B18C4F29700B15FEB /* Moto64Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Moto64Tests.m; sourceTree = "<group>"; };
-		DABF8F7B18E7276800827F66 /* SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVPullToRefresh.h; sourceTree = "<group>"; };
-		DABF8F7C18E7276800827F66 /* UIScrollView+SVInfiniteScrolling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SVInfiniteScrolling.h"; sourceTree = "<group>"; };
-		DABF8F7D18E7276800827F66 /* UIScrollView+SVInfiniteScrolling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVInfiniteScrolling.m"; sourceTree = "<group>"; };
-		DABF8F7E18E7276800827F66 /* UIScrollView+SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SVPullToRefresh.h"; sourceTree = "<group>"; };
-		DABF8F7F18E7276800827F66 /* UIScrollView+SVPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVPullToRefresh.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,7 +129,6 @@
 		DA52641F18E6FFDE007E6397 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				DABF8F7A18E7276800827F66 /* SVPullToRefresh */,
 				DA52643D18E70277007E6397 /* RSSParser */,
 				DA52642018E70086007E6397 /* AFNetworking */,
 			);
@@ -263,19 +255,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		DABF8F7A18E7276800827F66 /* SVPullToRefresh */ = {
-			isa = PBXGroup;
-			children = (
-				DABF8F7B18E7276800827F66 /* SVPullToRefresh.h */,
-				DABF8F7C18E7276800827F66 /* UIScrollView+SVInfiniteScrolling.h */,
-				DABF8F7D18E7276800827F66 /* UIScrollView+SVInfiniteScrolling.m */,
-				DABF8F7E18E7276800827F66 /* UIScrollView+SVPullToRefresh.h */,
-				DABF8F7F18E7276800827F66 /* UIScrollView+SVPullToRefresh.m */,
-			);
-			name = SVPullToRefresh;
-			path = Libraries/SVPullToRefresh/SVPullToRefresh;
-			sourceTree = SOURCE_ROOT;
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -376,9 +355,7 @@
 			files = (
 				DA52643A18E70086007E6397 /* AFURLConnectionOperation.m in Sources */,
 				DA52644318E70277007E6397 /* RSSParser.m in Sources */,
-				DABF8F8018E7276800827F66 /* UIScrollView+SVInfiniteScrolling.m in Sources */,
 				DA52643C18E70086007E6397 /* UIImageView+AFNetworking.m in Sources */,
-				DABF8F8118E7276800827F66 /* UIScrollView+SVPullToRefresh.m in Sources */,
 				DA68E9F618C4F29700B15FEB /* main.m in Sources */,
 				DA68EA0618C4F29700B15FEB /* MTDetailViewController.m in Sources */,
 				DA52643918E70086007E6397 /* AFPropertyListRequestOperation.m in Sources */,
