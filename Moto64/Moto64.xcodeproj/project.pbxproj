@@ -37,6 +37,7 @@
 		DA68EA1218C4F29700B15FEB /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA68E9ED18C4F29700B15FEB /* CoreData.framework */; };
 		DA68EA1A18C4F29700B15FEB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA68EA1818C4F29700B15FEB /* InfoPlist.strings */; };
 		DA68EA1C18C4F29700B15FEB /* Moto64Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = DA68EA1B18C4F29700B15FEB /* Moto64Tests.m */; };
+		DAC8546F192515BD00D88826 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAC8546E192515BD00D88826 /* Parse.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +99,7 @@
 		DA68EA1718C4F29700B15FEB /* Moto64Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Moto64Tests-Info.plist"; sourceTree = "<group>"; };
 		DA68EA1918C4F29700B15FEB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		DA68EA1B18C4F29700B15FEB /* Moto64Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Moto64Tests.m; sourceTree = "<group>"; };
+		DAC8546E192515BD00D88826 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				DA68E9EE18C4F29700B15FEB /* CoreData.framework in Frameworks */,
 				DA68E9EC18C4F29700B15FEB /* UIKit.framework in Frameworks */,
 				DA68E9E818C4F29700B15FEB /* Foundation.framework in Frameworks */,
+				DAC8546F192515BD00D88826 /* Parse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,6 +201,7 @@
 		DA68E9E618C4F29700B15FEB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DAC8546E192515BD00D88826 /* Parse.framework */,
 				DA68E9E718C4F29700B15FEB /* Foundation.framework */,
 				DA68E9E918C4F29700B15FEB /* CoreGraphics.framework */,
 				DA68E9EB18C4F29700B15FEB /* UIKit.framework */,
@@ -496,6 +500,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Moto64/Moto64-Prefix.pch";
 				INFOPLIST_FILE = "Moto64/Moto64-Info.plist";
@@ -509,6 +517,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Moto64/Moto64-Prefix.pch";
 				INFOPLIST_FILE = "Moto64/Moto64-Info.plist";
