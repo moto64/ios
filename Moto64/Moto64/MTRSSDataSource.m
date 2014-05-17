@@ -57,7 +57,7 @@
     
     NSError *error = nil;
     
-    int count = [self.managedObjectContext countForFetchRequest:fetchRequest error:&error];
+    NSUInteger count = [self.managedObjectContext countForFetchRequest:fetchRequest error:&error];
     
     return count > 0;
 }

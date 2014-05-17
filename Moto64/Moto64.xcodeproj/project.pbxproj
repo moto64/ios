@@ -37,6 +37,14 @@
 		DA68EA1218C4F29700B15FEB /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA68E9ED18C4F29700B15FEB /* CoreData.framework */; };
 		DA68EA1A18C4F29700B15FEB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA68EA1818C4F29700B15FEB /* InfoPlist.strings */; };
 		DA68EA1C18C4F29700B15FEB /* Moto64Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = DA68EA1B18C4F29700B15FEB /* Moto64Tests.m */; };
+		DA71C9C11927A22300370B61 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA71C9C01927A22300370B61 /* CFNetwork.framework */; };
+		DA71C9C31927A23C00370B61 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA71C9C21927A23C00370B61 /* Security.framework */; };
+		DA71C9C51927A24200370B61 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA71C9C41927A24200370B61 /* StoreKit.framework */; };
+		DA71C9C71927A25500370B61 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA71C9C61927A25500370B61 /* SystemConfiguration.framework */; };
+		DA71C9C91927A26100370B61 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA71C9C81927A26100370B61 /* QuartzCore.framework */; };
+		DA71C9CB1927A26700370B61 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA71C9CA1927A26700370B61 /* MobileCoreServices.framework */; };
+		DA71C9CD1927A27E00370B61 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DA71C9CC1927A27E00370B61 /* libz.dylib */; };
+		DA71C9CF1927A29200370B61 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA71C9CE1927A29200370B61 /* CoreLocation.framework */; };
 		DAC8546F192515BD00D88826 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAC8546E192515BD00D88826 /* Parse.framework */; };
 /* End PBXBuildFile section */
 
@@ -99,6 +107,14 @@
 		DA68EA1718C4F29700B15FEB /* Moto64Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Moto64Tests-Info.plist"; sourceTree = "<group>"; };
 		DA68EA1918C4F29700B15FEB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		DA68EA1B18C4F29700B15FEB /* Moto64Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Moto64Tests.m; sourceTree = "<group>"; };
+		DA71C9C01927A22300370B61 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		DA71C9C21927A23C00370B61 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		DA71C9C41927A24200370B61 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		DA71C9C61927A25500370B61 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		DA71C9C81927A26100370B61 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		DA71C9CA1927A26700370B61 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		DA71C9CC1927A27E00370B61 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		DA71C9CE1927A29200370B61 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		DAC8546E192515BD00D88826 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -107,7 +123,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA71C9CF1927A29200370B61 /* CoreLocation.framework in Frameworks */,
 				DA68E9EA18C4F29700B15FEB /* CoreGraphics.framework in Frameworks */,
+				DA71C9CD1927A27E00370B61 /* libz.dylib in Frameworks */,
+				DA71C9CB1927A26700370B61 /* MobileCoreServices.framework in Frameworks */,
+				DA71C9C91927A26100370B61 /* QuartzCore.framework in Frameworks */,
+				DA71C9C71927A25500370B61 /* SystemConfiguration.framework in Frameworks */,
+				DA71C9C51927A24200370B61 /* StoreKit.framework in Frameworks */,
+				DA71C9C31927A23C00370B61 /* Security.framework in Frameworks */,
+				DA71C9C11927A22300370B61 /* CFNetwork.framework in Frameworks */,
 				DA68E9EE18C4F29700B15FEB /* CoreData.framework in Frameworks */,
 				DA68E9EC18C4F29700B15FEB /* UIKit.framework in Frameworks */,
 				DA68E9E818C4F29700B15FEB /* Foundation.framework in Frameworks */,
@@ -201,6 +225,14 @@
 		DA68E9E618C4F29700B15FEB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DA71C9CE1927A29200370B61 /* CoreLocation.framework */,
+				DA71C9CC1927A27E00370B61 /* libz.dylib */,
+				DA71C9CA1927A26700370B61 /* MobileCoreServices.framework */,
+				DA71C9C81927A26100370B61 /* QuartzCore.framework */,
+				DA71C9C61927A25500370B61 /* SystemConfiguration.framework */,
+				DA71C9C41927A24200370B61 /* StoreKit.framework */,
+				DA71C9C21927A23C00370B61 /* Security.framework */,
+				DA71C9C01927A22300370B61 /* CFNetwork.framework */,
 				DAC8546E192515BD00D88826 /* Parse.framework */,
 				DA68E9E718C4F29700B15FEB /* Foundation.framework */,
 				DA68E9E918C4F29700B15FEB /* CoreGraphics.framework */,
