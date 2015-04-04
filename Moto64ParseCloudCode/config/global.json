@@ -1,0 +1,14 @@
+{
+    "applications": {
+        "_default": {
+            "link": "moto64"
+        }, 
+        "moto64": {
+            "applicationId": "YHAuARF6h5GNjj3vnn0WMv6McjITUQTGtzsRHGgp", 
+            "masterKey": "0gJHDNOYXKVEW9YisQogfws70ZQYGf3CyIAMZXcI"
+        }
+    }, 
+    "global": {
+        "parseVersion": "1.3.5"
+    }
+}
