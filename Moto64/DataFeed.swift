@@ -16,6 +16,8 @@ class DataFeed: NSObject, NSXMLParserDelegate
         var pubDate: NSDate = NSDate()
         var descr: String = ""
         var isNew: Bool = true
+        var latitude: Double = 0.00//51.533479//51.5405600
+        var longitude: Double = 0.00//46.034264//46.0086100
     }
     
     private var feed: [Item] = []
@@ -72,6 +74,27 @@ class DataFeed: NSObject, NSXMLParserDelegate
                 var descr = string.stringByReplacingOccurrencesOfString("<[^>]+>", withString: "", options: .RegularExpressionSearch, range: nil)
                 descr = descr.stringByReplacingOccurrencesOfString("&nbsp;", withString: "", options: .RegularExpressionSearch, range: nil)
                 currentItem.descr = descr.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+
+                var error: NSError? = nil
+                let options = NSRegularExpressionOptions.CaseInsensitive | NSRegularExpressionOptions.DotMatchesLineSeparators
+                let re1 = NSRegularExpression (pattern: ".*Широта:[^\\(]*\\((\\d+\\.\\d+)\\).*", options: options, error: &error)
+                let re2 = NSRegularExpression (pattern: ".*Долгота:[^\\(]*\\((\\d+\\.\\d+)\\).*", options: options, error: &error)
+                let range = NSMakeRange(0, countElements(descr))
+                
+                if re1?.numberOfMatchesInString(descr, options: nil, range: range) > 0 {
+                    if let latitude = re1?.stringByReplacingMatchesInString(descr, options: nil, range: range, withTemplate: "$1") {
+                        if let latitudeDouble = NSNumberFormatter().numberFromString(latitude)?.doubleValue {
+                            currentItem.latitude = latitudeDouble
+                        }
+                    }
+                }
+                if re2?.numberOfMatchesInString(descr, options: nil, range: range) > 0 {
+                    if let longitude = re2?.stringByReplacingMatchesInString(descr, options: nil, range: range, withTemplate: "$1") {
+                        if let longitudeDouble = NSNumberFormatter().numberFromString(longitude)?.doubleValue {
+                            currentItem.longitude = longitudeDouble
+                        }
+                    }
+                }
             case "pubDate":
                 var dateFormatter = NSDateFormatter()
                 //dateFormatter.dateStyle = .FullStyle
