@@ -12,6 +12,7 @@
 		DA0DDB3E1ABA273C0038A6E7 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0DDB3D1ABA273C0038A6E7 /* WebViewController.swift */; };
 		DA38702C1AD06B9D003ED34B /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA38702A1AD06B9D003ED34B /* Bolts.framework */; };
 		DA38702D1AD06B9E003ED34B /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA38702B1AD06B9D003ED34B /* Parse.framework */; };
+		DA3870331AD0AE40003ED34B /* crash.aiff in Resources */ = {isa = PBXBuildFile; fileRef = DA3870321AD0AE40003ED34B /* crash.aiff */; };
 		DA6A4CEA1AB5C07200C647F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6A4CE91AB5C07200C647F5 /* AppDelegate.swift */; };
 		DA6A4CED1AB5C07200C647F5 /* Moto64.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DA6A4CEB1AB5C07200C647F5 /* Moto64.xcdatamodeld */; };
 		DA6A4CEF1AB5C07200C647F5 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6A4CEE1AB5C07200C647F5 /* MasterViewController.swift */; };
@@ -49,6 +50,7 @@
 		DA38702A1AD06B9D003ED34B /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = Frameworks/Bolts.framework; sourceTree = "<group>"; };
 		DA38702B1AD06B9D003ED34B /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = Frameworks/Parse.framework; sourceTree = "<group>"; };
 		DA38702E1AD07F05003ED34B /* Moto64_v1.1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Moto64_v1.1.xcdatamodel; sourceTree = "<group>"; };
+		DA3870321AD0AE40003ED34B /* crash.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = crash.aiff; path = Moto64/Resources/crash.aiff; sourceTree = "<group>"; };
 		DA6A4CE41AB5C07200C647F5 /* Moto64.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Moto64.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA6A4CE81AB5C07200C647F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA6A4CE91AB5C07200C647F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -104,6 +106,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DA38702F1AD0ADA2003ED34B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DA3870321AD0AE40003ED34B /* crash.aiff */,
+			);
+			name = Resources;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		DA6A4CDB1AB5C07200C647F5 = {
 			isa = PBXGroup;
 			children = (
@@ -135,6 +146,7 @@
 				DA0DDB3B1AB8B8CD0038A6E7 /* Regex.swift */,
 				DA6A4CF21AB5C07200C647F5 /* Main.storyboard */,
 				DA6A4CEB1AB5C07200C647F5 /* Moto64.xcdatamodeld */,
+				DA38702F1AD0ADA2003ED34B /* Resources */,
 				DA6A4CE71AB5C07200C647F5 /* Supporting Files */,
 			);
 			path = Moto64;
@@ -274,6 +286,7 @@
 				DA6A4CF41AB5C07200C647F5 /* Main.storyboard in Resources */,
 				DA6A4CF91AB5C07200C647F5 /* LaunchScreen.xib in Resources */,
 				DA6A4CF61AB5C07200C647F5 /* Images.xcassets in Resources */,
+				DA3870331AD0AE40003ED34B /* crash.aiff in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
