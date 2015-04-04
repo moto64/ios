@@ -48,6 +48,7 @@
 		DA0DDB3D1ABA273C0038A6E7 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		DA38702A1AD06B9D003ED34B /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = Frameworks/Bolts.framework; sourceTree = "<group>"; };
 		DA38702B1AD06B9D003ED34B /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = Frameworks/Parse.framework; sourceTree = "<group>"; };
+		DA38702E1AD07F05003ED34B /* Moto64_v1.1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Moto64_v1.1.xcdatamodel; sourceTree = "<group>"; };
 		DA6A4CE41AB5C07200C647F5 /* Moto64.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Moto64.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA6A4CE81AB5C07200C647F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA6A4CE91AB5C07200C647F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -538,9 +539,10 @@
 		DA6A4CEB1AB5C07200C647F5 /* Moto64.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				DA38702E1AD07F05003ED34B /* Moto64_v1.1.xcdatamodel */,
 				DA6A4CEC1AB5C07200C647F5 /* Moto64.xcdatamodel */,
 			);
-			currentVersion = DA6A4CEC1AB5C07200C647F5 /* Moto64.xcdatamodel */;
+			currentVersion = DA38702E1AD07F05003ED34B /* Moto64_v1.1.xcdatamodel */;
 			path = Moto64.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
