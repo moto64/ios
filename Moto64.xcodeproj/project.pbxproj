@@ -10,8 +10,8 @@
 		DA0DDB3A1AB8902E0038A6E7 /* DataFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0DDB391AB8902E0038A6E7 /* DataFeed.swift */; };
 		DA0DDB3C1AB8B8CD0038A6E7 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0DDB3B1AB8B8CD0038A6E7 /* Regex.swift */; };
 		DA0DDB3E1ABA273C0038A6E7 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0DDB3D1ABA273C0038A6E7 /* WebViewController.swift */; };
-		DA3870241AD065E5003ED34B /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA3870221AD065E5003ED34B /* Bolts.framework */; };
-		DA3870251AD065E5003ED34B /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA3870231AD065E5003ED34B /* Parse.framework */; };
+		DA38702C1AD06B9D003ED34B /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA38702A1AD06B9D003ED34B /* Bolts.framework */; };
+		DA38702D1AD06B9E003ED34B /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA38702B1AD06B9D003ED34B /* Parse.framework */; };
 		DA6A4CEA1AB5C07200C647F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6A4CE91AB5C07200C647F5 /* AppDelegate.swift */; };
 		DA6A4CED1AB5C07200C647F5 /* Moto64.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DA6A4CEB1AB5C07200C647F5 /* Moto64.xcdatamodeld */; };
 		DA6A4CEF1AB5C07200C647F5 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6A4CEE1AB5C07200C647F5 /* MasterViewController.swift */; };
@@ -46,8 +46,8 @@
 		DA0DDB391AB8902E0038A6E7 /* DataFeed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataFeed.swift; sourceTree = "<group>"; };
 		DA0DDB3B1AB8B8CD0038A6E7 /* Regex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
 		DA0DDB3D1ABA273C0038A6E7 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
-		DA3870221AD065E5003ED34B /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
-		DA3870231AD065E5003ED34B /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		DA38702A1AD06B9D003ED34B /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = Frameworks/Bolts.framework; sourceTree = "<group>"; };
+		DA38702B1AD06B9D003ED34B /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = Frameworks/Parse.framework; sourceTree = "<group>"; };
 		DA6A4CE41AB5C07200C647F5 /* Moto64.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Moto64.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA6A4CE81AB5C07200C647F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA6A4CE91AB5C07200C647F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -86,9 +86,9 @@
 				DA6A4D191AB5E1E800C647F5 /* libz.dylib in Frameworks */,
 				DA6A4D171AB5E1CE00C647F5 /* CoreLocation.framework in Frameworks */,
 				DA6A4D151AB5E1C600C647F5 /* CoreGraphics.framework in Frameworks */,
-				DA3870241AD065E5003ED34B /* Bolts.framework in Frameworks */,
+				DA38702C1AD06B9D003ED34B /* Bolts.framework in Frameworks */,
 				DA6A4D131AB5E1B900C647F5 /* CFNetwork.framework in Frameworks */,
-				DA3870251AD065E5003ED34B /* Parse.framework in Frameworks */,
+				DA38702D1AD06B9E003ED34B /* Parse.framework in Frameworks */,
 				DA6A4D111AB5E1B300C647F5 /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -169,8 +169,8 @@
 		DA6A4D261AB5E25400C647F5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				DA3870221AD065E5003ED34B /* Bolts.framework */,
-				DA3870231AD065E5003ED34B /* Parse.framework */,
+				DA38702A1AD06B9D003ED34B /* Bolts.framework */,
+				DA38702B1AD06B9D003ED34B /* Parse.framework */,
 				DA6A4D241AB5E22500C647F5 /* libsqlite3.dylib */,
 				DA6A4D221AB5E21800C647F5 /* SystemConfiguration.framework */,
 				DA6A4D1E1AB5E20300C647F5 /* Security.framework */,

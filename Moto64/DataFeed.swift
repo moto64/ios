@@ -69,8 +69,9 @@ class DataFeed: NSObject, NSXMLParserDelegate
         case "title": currentItem.title = string.replace("ДТП [0-9]{2}/[0-9]{2}/[0-9]{2,4} +", template: "")
         case "link": currentItem.link = string
             case "description":
-                let descr = string.stringByReplacingOccurrencesOfString("<[^>]+>", withString: "", options: .RegularExpressionSearch, range: nil).stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
-                currentItem.descr = descr
+                var descr = string.stringByReplacingOccurrencesOfString("<[^>]+>", withString: "", options: .RegularExpressionSearch, range: nil)
+                descr = descr.stringByReplacingOccurrencesOfString("&nbsp;", withString: "", options: .RegularExpressionSearch, range: nil)
+                currentItem.descr = descr.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
             case "pubDate":
                 var dateFormatter = NSDateFormatter()
                 //dateFormatter.dateStyle = .FullStyle
