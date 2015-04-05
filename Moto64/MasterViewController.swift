@@ -66,6 +66,37 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         for item in data.getFeed() {
             if !isItemExists(item.pubDate) {
                 insertNewItem(item)
+            } else if item.latitude != "" && item.longitude != "" {
+                // Add coordinates to database
+                addCoordsToDatabaseIfNotExists(item)
+            }
+        }
+    }
+    
+    func addCoordsToDatabaseIfNotExists(item: DataFeed.Item)
+    {
+        let pubDate: NSDate = item.pubDate
+        let context = self.fetchedResultsController.managedObjectContext
+        let entity = self.fetchedResultsController.fetchRequest.entity!
+        let fetchRequest = NSFetchRequest()
+        fetchRequest.entity = entity
+        let predicate = NSPredicate(format: "pubDate == %@", argumentArray: [pubDate])
+        fetchRequest.predicate = predicate
+        fetchRequest.fetchLimit = 1
+        
+        var error: NSError? = nil
+        if let records = context.executeFetchRequest(fetchRequest, error: &error) as? [NSManagedObject] {
+            if let record = records.first {
+                let latitude = record.valueForKey("latitude") as? String
+                let longitude = record.valueForKey("longitude") as? String
+                if latitude == nil || longitude == nil {
+                    record.setValue(item.latitude, forKey: "latitude")
+                    record.setValue(item.longitude, forKey: "longitude")
+                    var error: NSError? = nil
+                    if context.hasChanges && !context.save(&error) {
+                        println(error)
+                    }
+                }
             }
         }
     }
@@ -76,7 +107,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         let entity = self.fetchedResultsController.fetchRequest.entity!
         let fetchRequest = NSFetchRequest()
         fetchRequest.entity = entity
-        let predicate = NSPredicate(format: "pubDate = %@", argumentArray: [pubDate])
+        let predicate = NSPredicate(format: "pubDate == %@", argumentArray: [pubDate])
         fetchRequest.predicate = predicate
         fetchRequest.fetchLimit = 1
         
