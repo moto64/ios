@@ -7,13 +7,13 @@
 //
 
 import UIKit
-//import MapKit
+import MapKit
 
 class DetailViewController: UIViewController {
 
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var descrText: UITextView!
-//    @IBOutlet var mapView: MKMapView!
+    @IBOutlet var mapView: MKMapView!
 
     var detailItem: DataFeed.Item? {
         didSet {
@@ -27,20 +27,37 @@ class DetailViewController: UIViewController {
         
         self.configureView()
         
-//        let location = CLLocationCoordinate2D(
-//            latitude: 51.5405600,
-//            longitude: 46.0086100
-//        )
-//
-//        let span = MKCoordinateSpanMake(0.05, 0.05)
-//        let region = MKCoordinateRegion(center: location, span: span)
-//        mapView.setRegion(region, animated: true)
-//        
-//        let annotation = MKPointAnnotation()
-//        annotation.setCoordinate(location)
-//        annotation.title = "Саратов"
-//        //annotation.subtitle = ""
-//        mapView.addAnnotation(annotation)
+        if let latitude = detailItem?.latitude {
+            if let longitude = detailItem?.longitude {
+                let latitudeDouble = (latitude as NSString).doubleValue
+                let longitudeDouble = (longitude as NSString).doubleValue
+                if latitudeDouble > 0 && longitudeDouble > 0 {
+                    
+                    let location = CLLocationCoordinate2D(
+                        latitude: latitudeDouble,
+                        longitude: longitudeDouble
+                    )
+
+                    let span = MKCoordinateSpanMake(0.005, 0.005)
+                    let region = MKCoordinateRegion(center: location, span: span)
+                    mapView.setRegion(region, animated: true)
+                    
+                    let annotation = MKPointAnnotation()
+                    annotation.setCoordinate(location)
+                    annotation.title = "ДТП"
+                    if let date = detailItem?.pubDate {
+                        var dateFormatter = NSDateFormatter()
+                        dateFormatter.dateFormat = "dd.MM.yyyy hh:mm:ss"
+                        annotation.subtitle = dateFormatter.stringFromDate(date)
+                    }
+                    //annotation.subtitle = ""
+                    mapView.addAnnotation(annotation)
+                    mapView.hidden = false
+                } else {
+                    mapView.hidden = true
+                }
+            }
+        }
     }
 
     func configureView() {
@@ -53,7 +70,7 @@ class DetailViewController: UIViewController {
         descrText?.text = detailItem?.descr
         descrText?.scrollsToTop = true
         descrText?.scrollRangeToVisible(NSMakeRange(0, 1))
-
+        mapView?.hidden = true
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

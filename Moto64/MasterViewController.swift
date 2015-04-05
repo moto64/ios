@@ -129,6 +129,8 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         newManagedObject.setValue(data.descr, forKey: "descr")
         newManagedObject.setValue(data.link, forKey: "link")
         newManagedObject.setValue(data.isNew, forKey: "isNew")
+        newManagedObject.setValue(data.latitude, forKey: "latitude")
+        newManagedObject.setValue(data.longitude, forKey: "longitude")
              
         // Save the context.
         var error: NSError? = nil
@@ -151,6 +153,14 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
                 item.link = object.valueForKey("link") as String
                 item.descr = object.valueForKey("descr") as String
                 item.pubDate = object.valueForKey("pubDate") as NSDate
+                let latitude = object.valueForKey("latitude") as? String
+                let longitude = object.valueForKey("longitude") as? String
+                if latitude != nil {
+                    item.latitude = latitude!
+                }
+                if longitude != nil {
+                    item.longitude = longitude!
+                }
                 
                 controller.detailItem = item
                 
