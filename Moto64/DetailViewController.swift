@@ -61,6 +61,7 @@ class DetailViewController: UIViewController {
     }
 
     func configureView() {
+        
 //        if let date = detailItem?.pubDate {
 //            var dateFormatter = NSDateFormatter()
 //            dateFormatter.dateFormat = "dd.MM.yyyy"

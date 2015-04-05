@@ -161,7 +161,6 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
                 if longitude != nil {
                     item.longitude = longitude!
                 }
-                
                 controller.detailItem = item
                 
                 controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
