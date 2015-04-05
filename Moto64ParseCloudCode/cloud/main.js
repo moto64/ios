@@ -55,7 +55,7 @@ Parse.Cloud.job("push64", function(request, status) {
 		  data: {
 		    alert: msg,
 		    badge: "Increment",
-		    sound: "default"
+		    sound: "crash.aiff"
 		  }
 		}, {
 		  success: function() {
