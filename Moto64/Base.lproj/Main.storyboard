@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="H1p-Uh-vWS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="H1p-Uh-vWS">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Master-->
@@ -71,31 +72,46 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Заголовок" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B5n-8b-B00">
-                                <rect key="frame" x="0.0" y="64" width="600" height="65"/>
+                                <rect key="frame" x="16" y="64" width="568" height="65"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="65" id="15a-at-g2b"/>
+                                    <constraint firstAttribute="height" constant="65" id="HYC-Qe-pE5"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Описание" translatesAutoresizingMaskIntoConstraints="NO" id="9fS-C6-cUJ">
-                                <rect key="frame" x="0.0" y="137" width="600" height="463"/>
+                                <rect key="frame" x="16" y="137" width="568" height="224"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="208" id="1f1-dG-AQh"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" address="YES"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="1f1-dG-AQh"/>
+                                    </mask>
+                                </variation>
                             </textView>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="9H3-5V-hso">
+                                <rect key="frame" x="16" y="369" width="568" height="223"/>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="B5n-8b-B00" firstAttribute="top" secondItem="Gvr-hw-u2d" secondAttribute="bottom" id="6tI-xJ-FjT"/>
-                            <constraint firstAttribute="trailing" secondItem="9fS-C6-cUJ" secondAttribute="trailing" id="emu-4P-Kbb"/>
-                            <constraint firstItem="9fS-C6-cUJ" firstAttribute="bottom" secondItem="BrN-OE-s93" secondAttribute="top" id="i3h-lU-J8o"/>
-                            <constraint firstItem="9fS-C6-cUJ" firstAttribute="leading" secondItem="B5n-8b-B00" secondAttribute="leading" id="mPN-ja-P9U"/>
-                            <constraint firstItem="9fS-C6-cUJ" firstAttribute="top" secondItem="B5n-8b-B00" secondAttribute="bottom" constant="8" symbolic="YES" id="rUl-Bf-DL0"/>
-                            <constraint firstItem="9fS-C6-cUJ" firstAttribute="leading" secondItem="OQZ-Li-525" secondAttribute="leading" id="wCd-bZ-iG8"/>
-                            <constraint firstItem="B5n-8b-B00" firstAttribute="trailing" secondItem="9fS-C6-cUJ" secondAttribute="trailing" id="wIV-Hc-lrB"/>
+                            <constraint firstItem="9H3-5V-hso" firstAttribute="top" secondItem="9fS-C6-cUJ" secondAttribute="bottom" constant="8" symbolic="YES" id="2eb-Ax-zBw"/>
+                            <constraint firstItem="9fS-C6-cUJ" firstAttribute="leading" secondItem="OQZ-Li-525" secondAttribute="leadingMargin" id="3OO-EZ-ViK"/>
+                            <constraint firstItem="B5n-8b-B00" firstAttribute="top" secondItem="Gvr-hw-u2d" secondAttribute="bottom" id="7yP-XJ-NVk"/>
+                            <constraint firstItem="9fS-C6-cUJ" firstAttribute="height" secondItem="9H3-5V-hso" secondAttribute="height" id="9Os-BD-c5z"/>
+                            <constraint firstItem="9fS-C6-cUJ" firstAttribute="top" secondItem="B5n-8b-B00" secondAttribute="bottom" constant="8" symbolic="YES" id="MeC-lp-Iap"/>
+                            <constraint firstItem="9fS-C6-cUJ" firstAttribute="leading" secondItem="9H3-5V-hso" secondAttribute="leading" id="TJG-jm-H7g"/>
+                            <constraint firstItem="9fS-C6-cUJ" firstAttribute="trailing" secondItem="9H3-5V-hso" secondAttribute="trailing" id="cbZ-hb-AYd"/>
+                            <constraint firstItem="BrN-OE-s93" firstAttribute="top" secondItem="9H3-5V-hso" secondAttribute="bottom" constant="8" symbolic="YES" id="lvr-Zk-kVy"/>
+                            <constraint firstItem="B5n-8b-B00" firstAttribute="leading" secondItem="9fS-C6-cUJ" secondAttribute="leading" id="pD5-ac-p0K"/>
+                            <constraint firstItem="9fS-C6-cUJ" firstAttribute="trailing" secondItem="OQZ-Li-525" secondAttribute="trailingMargin" id="qYs-Kl-JSf"/>
+                            <constraint firstItem="B5n-8b-B00" firstAttribute="trailing" secondItem="9fS-C6-cUJ" secondAttribute="trailing" id="rbT-ub-Fn4"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="ДТП" id="Ly9-tp-lgt">
@@ -107,6 +123,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="descrText" destination="9fS-C6-cUJ" id="6QX-Z7-Yho"/>
+                        <outlet property="mapView" destination="9H3-5V-hso" id="Xgx-Vh-qik"/>
                         <outlet property="titleLabel" destination="B5n-8b-B00" id="Rs2-qd-SSh"/>
                     </connections>
                 </viewController>
