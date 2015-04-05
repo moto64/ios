@@ -73,6 +73,9 @@ class DataFeed: NSObject, NSXMLParserDelegate
             case "description":
                 var descr = string.stringByReplacingOccurrencesOfString("<[^>]+>", withString: "", options: .RegularExpressionSearch, range: nil)
                 descr = descr.stringByReplacingOccurrencesOfString("&nbsp;", withString: "", options: .RegularExpressionSearch, range: nil)
+                for i in 1...5 {
+                    descr = descr.stringByReplacingOccurrencesOfString("\n\n", withString: "\n", options: .RegularExpressionSearch, range: nil)
+                }
                 currentItem.descr = descr.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
 
                 var error: NSError? = nil
