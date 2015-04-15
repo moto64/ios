@@ -22,13 +22,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        let splitViewController = self.window!.rootViewController as UISplitViewController
-        let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as UINavigationController
+        let splitViewController = self.window!.rootViewController as! UISplitViewController
+        let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as! UINavigationController
         navigationController.topViewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem()
         splitViewController.delegate = self
 
-        let masterNavigationController = splitViewController.viewControllers[0] as UINavigationController
-        let controller = masterNavigationController.topViewController as MasterViewController
+        let masterNavigationController = splitViewController.viewControllers[0] as! UINavigationController
+        let controller = masterNavigationController.topViewController as! MasterViewController
         controller.managedObjectContext = self.managedObjectContext
         
         Parse .setApplicationId("YHAuARF6h5GNjj3vnn0WMv6McjITUQTGtzsRHGgp", clientKey: "QRlb6AqA4VIwglloat1rVkvdnWgJjpDvnQ45A2dV")
@@ -47,7 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         application.registerForRemoteNotifications()
         
         if let options: NSDictionary = launchOptions {
-            let notificationPayload: NSDictionary = options.objectForKey(UIApplicationLaunchOptionsRemoteNotificationKey) as NSDictionary
+            let notificationPayload: NSDictionary = options.objectForKey(UIApplicationLaunchOptionsRemoteNotificationKey) as! NSDictionary
             print ("Received notification: \(notificationPayload)")
         }
         
@@ -63,9 +63,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     func setBadge(badge: Int) {
         let installation = PFInstallation.currentInstallation()
         installation.badge = 0
-        installation.saveEventually{
-            (success: Bool!, error: NSError!) -> Void in
+        installation.saveEventually { (success, error) -> Void in
         }
+
     }
     
     // MARK: - Push Notifications
@@ -77,9 +77,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
         let installation = PFInstallation.currentInstallation()
         installation.setDeviceTokenFromData(deviceToken)
-        installation.saveInBackgroundWithBlock {
-            (success: Bool!, error: NSError!) -> Void in
-            if (success != nil) {
+        installation.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+            if (success != true) {
                 print("Token saved: \(deviceToken)")
             } else {
                 print("Error: \(error)")
@@ -160,7 +159,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     lazy var applicationDocumentsDirectory: NSURL = {
         // The directory the application uses to store the Core Data store file. This code uses a directory named "com.Moto64" in the application's documents Application Support directory.
         let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
-        return urls[urls.count-1] as NSURL
+        return urls[urls.count-1] as! NSURL
     }()
 
     lazy var managedObjectModel: NSManagedObjectModel = {

@@ -120,7 +120,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     func insertNewItem(data: DataFeed.Item) {
         let context = self.fetchedResultsController.managedObjectContext
         let entity = self.fetchedResultsController.fetchRequest.entity!
-        let newManagedObject = NSEntityDescription.insertNewObjectForEntityForName(entity.name!, inManagedObjectContext: context) as NSManagedObject
+        let newManagedObject = NSEntityDescription.insertNewObjectForEntityForName(entity.name!, inManagedObjectContext: context) as! NSManagedObject
              
         // If appropriate, configure the new managed object.
         // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
@@ -144,15 +144,15 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow() {
-            let object = self.fetchedResultsController.objectAtIndexPath(indexPath) as NSManagedObject
-                let controller = (segue.destinationViewController as UINavigationController).topViewController as DetailViewController
+            let object = self.fetchedResultsController.objectAtIndexPath(indexPath) as! NSManagedObject
+                let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
 
                 var item = DataFeed.Item()
                 
-                item.title = object.valueForKey("title") as String
-                item.link = object.valueForKey("link") as String
-                item.descr = object.valueForKey("descr") as String
-                item.pubDate = object.valueForKey("pubDate") as NSDate
+                item.title = object.valueForKey("title") as! String
+                item.link = object.valueForKey("link") as! String
+                item.descr = object.valueForKey("descr") as! String
+                item.pubDate = object.valueForKey("pubDate") as! NSDate
                 let latitude = object.valueForKey("latitude") as? String
                 let longitude = object.valueForKey("longitude") as? String
                 if latitude != nil {
@@ -176,12 +176,12 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let sectionInfo = self.fetchedResultsController.sections![section] as NSFetchedResultsSectionInfo
+        let sectionInfo = self.fetchedResultsController.sections![section] as! NSFetchedResultsSectionInfo
         return sectionInfo.numberOfObjects
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! UITableViewCell
         self.configureCell(cell, atIndexPath: indexPath)
         return cell
     }
@@ -194,7 +194,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             let context = self.fetchedResultsController.managedObjectContext
-            context.deleteObject(self.fetchedResultsController.objectAtIndexPath(indexPath) as NSManagedObject)
+            context.deleteObject(self.fetchedResultsController.objectAtIndexPath(indexPath) as! NSManagedObject)
                 
             var error: NSError? = nil
             if !context.save(&error) {
@@ -206,7 +206,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if let indexPath = self.tableView.indexPathForSelectedRow() {
             let context = self.fetchedResultsController.managedObjectContext
-            let object = self.fetchedResultsController.objectAtIndexPath(indexPath) as NSManagedObject
+            let object = self.fetchedResultsController.objectAtIndexPath(indexPath) as! NSManagedObject
             object.setValue(false, forKey: "isNew")
             
             var error: NSError? = nil
@@ -217,7 +217,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     }
 
     func configureCell(cell: UITableViewCell, atIndexPath indexPath: NSIndexPath) {
-        let object = self.fetchedResultsController.objectAtIndexPath(indexPath) as NSManagedObject
+        let object = self.fetchedResultsController.objectAtIndexPath(indexPath) as! NSManagedObject
         cell.textLabel!.text = object.valueForKey("title") as? String
         
         if let date = object.valueForKey("pubDate") as? NSDate {
@@ -226,7 +226,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
             cell.detailTextLabel!.text = dateFormatter.stringFromDate(date)
         }
         
-        let isNew = object.valueForKey("isNew") as Bool
+        let isNew = object.valueForKey("isNew") as! Bool
         if isNew {
             cell.textLabel!.font = UIFont(name:"HelveticaNeue-Bold", size: 12.0)
         } else {

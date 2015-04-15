@@ -43,7 +43,7 @@ class DetailViewController: UIViewController {
                     mapView.setRegion(region, animated: true)
                     
                     let annotation = MKPointAnnotation()
-                    annotation.setCoordinate(location)
+                    annotation.coordinate = location
                     annotation.title = "ДТП"
                     if let date = detailItem?.pubDate {
                         var dateFormatter = NSDateFormatter()
@@ -76,7 +76,7 @@ class DetailViewController: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "web" {
-            let controller = segue.destinationViewController as WebViewController
+            let controller = segue.destinationViewController as! WebViewController
             if let link = detailItem?.link {
                 controller.link = link
             }

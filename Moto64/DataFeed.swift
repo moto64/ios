@@ -49,7 +49,7 @@ class DataFeed: NSObject, NSXMLParserDelegate
         }
     }
     
-    func parser(parser: NSXMLParser!, didStartElement elementName: String!, namespaceURI: String!, qualifiedName qName: String!, attributes attributeDict: [NSObject : AnyObject]!)
+    func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [NSObject : AnyObject])
     {
         currentElement = elementName
         if elementName == "item" {
@@ -57,7 +57,7 @@ class DataFeed: NSObject, NSXMLParserDelegate
         }
     }
     
-    func parser(parser: NSXMLParser!, didEndElement elementName: String!, namespaceURI: String!, qualifiedName qName: String!)
+    func parser(parser: NSXMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?)
     {
         currentElement = ""
         if elementName == "item" {
@@ -65,13 +65,13 @@ class DataFeed: NSObject, NSXMLParserDelegate
         }
     }
     
-    func parser(parser: NSXMLParser!, foundCharacters string: String!)
+    func parser(parser: NSXMLParser, foundCharacters string: String?)
     {
         switch currentElement {
-        case "title": currentItem.title = string.replace("ДТП [0-9]{2}/[0-9]{2}/[0-9]{2,4} +", template: "")
-        case "link": currentItem.link = string
+        case "title": currentItem.title = string!.replace("ДТП [0-9]{2}/[0-9]{2}/[0-9]{2,4} +", template: "")
+        case "link": currentItem.link = string!
             case "description":
-                var descr = string.stringByReplacingOccurrencesOfString("<[^>]+>", withString: "", options: .RegularExpressionSearch, range: nil)
+                var descr = string!.stringByReplacingOccurrencesOfString("<[^>]+>", withString: "", options: .RegularExpressionSearch, range: nil)
                 descr = descr.stringByReplacingOccurrencesOfString("&nbsp;", withString: "", options: .RegularExpressionSearch, range: nil)
                 for i in 1...5 {
                     descr = descr.stringByReplacingOccurrencesOfString("\n\n", withString: "\n", options: .RegularExpressionSearch, range: nil)
@@ -82,7 +82,7 @@ class DataFeed: NSObject, NSXMLParserDelegate
                 let options = NSRegularExpressionOptions.CaseInsensitive | NSRegularExpressionOptions.DotMatchesLineSeparators
                 let re1 = NSRegularExpression (pattern: ".*Широта:[^\\(]*\\((\\d+\\.\\d+)\\).*", options: options, error: &error)
                 let re2 = NSRegularExpression (pattern: ".*Долгота:[^\\(]*\\((\\d+\\.\\d+)\\).*", options: options, error: &error)
-                let range = NSMakeRange(0, countElements(descr))
+                let range = NSMakeRange(0, count(descr))
                 
                 if re1?.numberOfMatchesInString(descr, options: nil, range: range) > 0 {
                     if let latitude = re1?.stringByReplacingMatchesInString(descr, options: nil, range: range, withTemplate: "$1") {
@@ -104,7 +104,7 @@ class DataFeed: NSObject, NSXMLParserDelegate
                 dateFormatter.timeZone = NSTimeZone(forSecondsFromGMT: 3600 * 24 * 3) // GMT+3
                 
                 dateFormatter.dateFormat = "EEE, dd MMM yyyy HH:mm:ss Z"
-                if let date = dateFormatter.dateFromString(string) {
+                if let date = dateFormatter.dateFromString(string!) {
                     currentItem.pubDate = date
                 }
             default: break
@@ -112,7 +112,7 @@ class DataFeed: NSObject, NSXMLParserDelegate
         
     }
     
-    func parserDidEndDocument(parser: NSXMLParser!)
+    func parserDidEndDocument(parser: NSXMLParser)
     {
         UIApplication.sharedApplication().networkActivityIndicatorVisible = false
     }
