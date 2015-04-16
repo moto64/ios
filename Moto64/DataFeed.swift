@@ -65,18 +65,51 @@ class DataFeed: NSObject, NSXMLParserDelegate
         }
     }
     
+    func stripHTML(text: String) -> String
+    {
+        var result = text.stringByReplacingOccurrencesOfString("<[^>]+>", withString: "", options: .RegularExpressionSearch, range: nil)
+        
+        result = result.stringByReplacingOccurrencesOfString("&nbsp;", withString: " ", options: .RegularExpressionSearch, range: nil)
+        result = result.stringByReplacingOccurrencesOfString("&#160;", withString: " ", options: .RegularExpressionSearch, range: nil)
+        
+        result = result.stringByReplacingOccurrencesOfString("&#34;", withString: "\"", options: .RegularExpressionSearch, range: nil)
+        result = result.stringByReplacingOccurrencesOfString("&quot;", withString: "\"", options: .RegularExpressionSearch, range: nil)
+        
+        result = result.stringByReplacingOccurrencesOfString("&#39;", withString: "'", options: .RegularExpressionSearch, range: nil)
+        
+        result = result.stringByReplacingOccurrencesOfString("&amp;", withString: "&", options: .RegularExpressionSearch, range: nil)
+        result = result.stringByReplacingOccurrencesOfString("&#38;", withString: "&", options: .RegularExpressionSearch, range: nil)
+
+        result = result.stringByReplacingOccurrencesOfString("&lt;", withString: "<", options: .RegularExpressionSearch, range: nil)
+        result = result.stringByReplacingOccurrencesOfString("&#60;", withString: "<", options: .RegularExpressionSearch, range: nil)
+
+        result = result.stringByReplacingOccurrencesOfString("&gt;", withString: ">", options: .RegularExpressionSearch, range: nil)
+        result = result.stringByReplacingOccurrencesOfString("&#62;", withString: ">", options: .RegularExpressionSearch, range: nil)
+
+        for i in 1...10 {
+            result = result.stringByReplacingOccurrencesOfString("\n\n", withString: "\n", options: .RegularExpressionSearch, range: nil)
+        }
+        result = result.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+        return result
+    }
+    
     func parser(parser: NSXMLParser, foundCharacters string: String?)
     {
         switch currentElement {
-        case "title": currentItem.title = string!.replace("ДТП [0-9]{2}/[0-9]{2}/[0-9]{2,4} +", template: "")
+        case "title":
+                var title = string!.replace("ДТП [0-9]{2}/[0-9]{2}/[0-9]{2,4} +", template: "")
+                title = stripHTML(title)
+                currentItem.title = title
         case "link": currentItem.link = string!
             case "description":
-                var descr = string!.stringByReplacingOccurrencesOfString("<[^>]+>", withString: "", options: .RegularExpressionSearch, range: nil)
-                descr = descr.stringByReplacingOccurrencesOfString("&nbsp;", withString: "", options: .RegularExpressionSearch, range: nil)
-                for i in 1...5 {
-                    descr = descr.stringByReplacingOccurrencesOfString("\n\n", withString: "\n", options: .RegularExpressionSearch, range: nil)
-                }
-                currentItem.descr = descr.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+//                var descr = string!.stringByReplacingOccurrencesOfString("<[^>]+>", withString: "", options: .RegularExpressionSearch, range: nil)
+//                descr = descr.stringByReplacingOccurrencesOfString("&nbsp;", withString: "", options: .RegularExpressionSearch, range: nil)
+//                for i in 1...5 {
+//                    descr = descr.stringByReplacingOccurrencesOfString("\n\n", withString: "\n", options: .RegularExpressionSearch, range: nil)
+//                }
+//                currentItem.descr = descr.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+                var descr = stripHTML(string!)
+                currentItem.descr = stripHTML(descr)
 
                 var error: NSError? = nil
                 let options = NSRegularExpressionOptions.CaseInsensitive | NSRegularExpressionOptions.DotMatchesLineSeparators
