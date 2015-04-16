@@ -25,6 +25,13 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if let bar = navigationController?.navigationBar {
+            bar.barTintColor = UIColor(red: 255.0/255.0, green: 240.0/255.0, blue: 222.0/255.0, alpha: 1.0)
+            bar.translucent = false
+            bar.barStyle = UIBarStyle.Default
+            bar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.darkGrayColor()]
+        }
+        
         self.configureView()
         
         if let latitude = detailItem?.latitude {

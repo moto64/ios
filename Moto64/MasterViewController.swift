@@ -226,6 +226,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     func configureCell(cell: UITableViewCell, atIndexPath indexPath: NSIndexPath) {
         let object = self.fetchedResultsController.objectAtIndexPath(indexPath) as! NSManagedObject
         cell.textLabel!.text = object.valueForKey("title") as? String
+        cell.backgroundColor = UIColor(red: 255.0/255.0, green: 240.0/255.0, blue: 222.0/255.0, alpha: 1.0)
         
         if let date = object.valueForKey("pubDate") as? NSDate {
             var dateFormatter = NSDateFormatter()
