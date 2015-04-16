@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA0B53FD1AE02F9000F0570C /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0B53FC1AE02F9000F0570C /* MapViewController.swift */; };
 		DA0DDB3A1AB8902E0038A6E7 /* DataFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0DDB391AB8902E0038A6E7 /* DataFeed.swift */; };
 		DA0DDB3C1AB8B8CD0038A6E7 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0DDB3B1AB8B8CD0038A6E7 /* Regex.swift */; };
 		DA0DDB3E1ABA273C0038A6E7 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0DDB3D1ABA273C0038A6E7 /* WebViewController.swift */; };
@@ -44,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DA0B53FC1AE02F9000F0570C /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		DA0DDB391AB8902E0038A6E7 /* DataFeed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataFeed.swift; sourceTree = "<group>"; };
 		DA0DDB3B1AB8B8CD0038A6E7 /* Regex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
 		DA0DDB3D1ABA273C0038A6E7 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				DA6A4CEE1AB5C07200C647F5 /* MasterViewController.swift */,
 				DA6A4CF01AB5C07200C647F5 /* DetailViewController.swift */,
 				DA0DDB3D1ABA273C0038A6E7 /* WebViewController.swift */,
+				DA0B53FC1AE02F9000F0570C /* MapViewController.swift */,
 				DA0DDB391AB8902E0038A6E7 /* DataFeed.swift */,
 				DA6A4D291AB5E34A00C647F5 /* Moto64-Bridging-Header.h */,
 				DA0DDB3B1AB8B8CD0038A6E7 /* Regex.swift */,
@@ -311,6 +314,7 @@
 				DA0DDB3E1ABA273C0038A6E7 /* WebViewController.swift in Sources */,
 				DA6A4CF11AB5C07200C647F5 /* DetailViewController.swift in Sources */,
 				DA0DDB3C1AB8B8CD0038A6E7 /* Regex.swift in Sources */,
+				DA0B53FD1AE02F9000F0570C /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

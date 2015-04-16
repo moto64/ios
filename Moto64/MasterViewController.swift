@@ -32,6 +32,13 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
             self.detailViewController = controllers[controllers.count-1].topViewController as? DetailViewController
         }
         
+        if let bar = navigationController?.navigationBar {
+            bar.barTintColor = UIColor(red: 255.0/255.0, green: 240.0/255.0, blue: 222.0/255.0, alpha: 1.0)
+            bar.translucent = false
+            bar.barStyle = UIBarStyle.Default
+            bar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.darkGrayColor()]
+        }
+        
         refreshControl?.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
         refreshControl?.attributedTitle = NSAttributedString(string: "Идет обновление...")
         

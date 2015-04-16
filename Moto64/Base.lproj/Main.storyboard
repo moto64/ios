@@ -75,15 +75,15 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Заголовок" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B5n-8b-B00">
                                 <rect key="frame" x="16" y="64" width="568" height="65"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="65" id="TpT-Rr-t2u"/>
+                                    <constraint firstAttribute="height" constant="65" id="CXq-I3-cga"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" editable="NO" text="Описание" translatesAutoresizingMaskIntoConstraints="NO" id="9fS-C6-cUJ">
-                                <rect key="frame" x="16" y="137" width="568" height="224"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="16" y="137" width="568" height="443"/>
+                                <color key="backgroundColor" red="1" green="0.94117647059999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="208" id="1f1-dG-AQh"/>
                                     <constraint firstAttribute="height" constant="223" id="6aN-YM-cCx"/>
@@ -100,38 +100,32 @@
                                     </mask>
                                 </variation>
                             </textView>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="PBp-3e-r61">
-                                <rect key="frame" x="16" y="369" width="568" height="223"/>
+                            <button opaque="NO" alpha="0.49999999999999961" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QBx-Uf-brP">
+                                <rect key="frame" x="520" y="516" width="64" height="64"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="223" id="tAK-dP-gX7"/>
+                                    <constraint firstAttribute="width" constant="64" id="Tjp-yt-MGm"/>
+                                    <constraint firstAttribute="height" constant="64" id="ua7-ui-E8h"/>
                                 </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="tAK-dP-gX7"/>
-                                    </mask>
-                                </variation>
-                            </mapView>
+                                <state key="normal" backgroundImage="MapOpen">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showMap" destination="9lQ-jv-SI7" eventType="touchUpInside" id="83k-2w-qbw"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="0.94117647059999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="PBp-3e-r61" firstAttribute="height" secondItem="9fS-C6-cUJ" secondAttribute="height" id="2Hu-ma-8i9"/>
-                            <constraint firstItem="9fS-C6-cUJ" firstAttribute="leading" secondItem="B5n-8b-B00" secondAttribute="leading" id="CCG-Df-H2b"/>
-                            <constraint firstItem="PBp-3e-r61" firstAttribute="height" secondItem="9fS-C6-cUJ" secondAttribute="height" id="NU0-zA-kLD"/>
-                            <constraint firstItem="PBp-3e-r61" firstAttribute="top" secondItem="9fS-C6-cUJ" secondAttribute="bottom" constant="8" symbolic="YES" id="RFI-qX-Bwk"/>
-                            <constraint firstItem="BrN-OE-s93" firstAttribute="top" secondItem="PBp-3e-r61" secondAttribute="bottom" constant="8" symbolic="YES" id="Rhp-Ma-CnC"/>
-                            <constraint firstItem="B5n-8b-B00" firstAttribute="top" secondItem="Gvr-hw-u2d" secondAttribute="bottom" id="VLY-Sz-d3v"/>
-                            <constraint firstItem="9fS-C6-cUJ" firstAttribute="trailing" secondItem="PBp-3e-r61" secondAttribute="trailing" id="aeZ-4L-gQk"/>
-                            <constraint firstItem="9fS-C6-cUJ" firstAttribute="top" secondItem="B5n-8b-B00" secondAttribute="bottom" constant="8" symbolic="YES" id="efp-2l-gsE"/>
-                            <constraint firstItem="PBp-3e-r61" firstAttribute="trailing" secondItem="OQZ-Li-525" secondAttribute="trailingMargin" id="jD5-83-oTz"/>
-                            <constraint firstItem="9fS-C6-cUJ" firstAttribute="leading" secondItem="OQZ-Li-525" secondAttribute="leadingMargin" id="mgN-FT-Hf8"/>
-                            <constraint firstItem="9fS-C6-cUJ" firstAttribute="trailing" secondItem="B5n-8b-B00" secondAttribute="trailing" id="nea-4H-lez"/>
-                            <constraint firstItem="9fS-C6-cUJ" firstAttribute="leading" secondItem="PBp-3e-r61" secondAttribute="leading" id="s8c-iG-8co"/>
+                            <constraint firstItem="QBx-Uf-brP" firstAttribute="trailing" secondItem="B5n-8b-B00" secondAttribute="trailing" id="7ZH-v3-X0K"/>
+                            <constraint firstItem="9fS-C6-cUJ" firstAttribute="leading" secondItem="B5n-8b-B00" secondAttribute="leading" id="H5g-Yt-nPJ"/>
+                            <constraint firstItem="QBx-Uf-brP" firstAttribute="trailing" secondItem="9fS-C6-cUJ" secondAttribute="trailing" id="Jg7-d0-kwT"/>
+                            <constraint firstItem="QBx-Uf-brP" firstAttribute="bottom" secondItem="9fS-C6-cUJ" secondAttribute="bottom" id="Nqm-Zx-qVS"/>
+                            <constraint firstItem="9fS-C6-cUJ" firstAttribute="top" secondItem="B5n-8b-B00" secondAttribute="bottom" constant="8" symbolic="YES" id="SzW-7G-Sge"/>
+                            <constraint firstAttribute="bottom" secondItem="9fS-C6-cUJ" secondAttribute="bottom" constant="20" symbolic="YES" id="kxA-RK-aGE"/>
+                            <constraint firstItem="B5n-8b-B00" firstAttribute="leading" secondItem="OQZ-Li-525" secondAttribute="leadingMargin" id="l2v-HE-n88"/>
+                            <constraint firstItem="B5n-8b-B00" firstAttribute="top" secondItem="Gvr-hw-u2d" secondAttribute="bottom" id="osk-wn-JD9"/>
+                            <constraint firstItem="QBx-Uf-brP" firstAttribute="trailing" secondItem="OQZ-Li-525" secondAttribute="trailingMargin" id="shL-yf-Nlr"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="NU0-zA-kLD"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="ДТП" id="Ly9-tp-lgt">
                         <barButtonItem key="rightBarButtonItem" title="Форум" id="73R-CG-H8C">
@@ -142,13 +136,32 @@
                     </navigationItem>
                     <connections>
                         <outlet property="descrText" destination="9fS-C6-cUJ" id="6QX-Z7-Yho"/>
-                        <outlet property="mapView" destination="PBp-3e-r61" id="uRV-Nu-NEn"/>
+                        <outlet property="showMapButton" destination="QBx-Uf-brP" id="OlI-9q-mLn"/>
                         <outlet property="titleLabel" destination="B5n-8b-B00" id="Rs2-qd-SSh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cf6-BN-WjP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="709" y="129"/>
+        </scene>
+        <!--Карта-->
+        <scene sceneID="doe-L4-BJI">
+            <objects>
+                <viewController title="Карта" id="AUr-QA-Hu7" customClass="MapViewController" customModule="Moto64" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Nug-NR-BVv"/>
+                        <viewControllerLayoutGuide type="bottom" id="Dje-lT-46d"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="JmR-Y2-mCr">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="LVk-4H-boj"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="93c-vD-fvY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1428" y="129"/>
         </scene>
         <!--Split View Controller-->
         <scene sceneID="Nki-YV-4Qg">
@@ -221,7 +234,8 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="r7i-6Z-zg0">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="0.94117647059999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="sectionIndexBackgroundColor" red="1" green="0.94117647059999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="Arm-wq-HPj" detailTextLabel="L0c-im-cEd" style="IBUITableViewCellStyleSubtitle" id="WCw-Qf-5nD">
                                 <rect key="frame" x="0.0" y="86" width="320" height="44"/>
@@ -245,7 +259,7 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="0.94117647058823528" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <segue destination="vC3-pB-5Vb" kind="showDetail" identifier="showDetail" id="6S0-TO-JiA"/>
                                 </connections>
@@ -285,6 +299,7 @@
     </scenes>
     <resources>
         <image name="Logo" width="250" height="250"/>
+        <image name="MapOpen" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="6S0-TO-JiA"/>
